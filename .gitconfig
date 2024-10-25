@@ -1,0 +1,38 @@
+[user]
+    name = Stephen Turner
+    email = vustephen@gmail.com
+[github]
+	user = stephenturner
+[core]
+    editor = vim
+	excludesfile = ~/.gitignore
+	fileMode = false
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    ui = auto
+[alias]
+    ci = commit
+    ciam = commit -am
+    rpo = remote prune origin
+    co = checkout
+    br = branch
+    bra = branch -a
+    st = status
+    su = status -u
+    ss = status -sb
+    dwd = diff --word-diff
+    l =    log --decorate --graph --abbrev-commit --date=relative --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    ld =   log --decorate --graph --abbrev-commit --date=short    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    branchclean = ! git branch --merged | egrep -v '(^\\*|master|main|dev)' | xargs git branch -d && git remote prune origin && git branch -a
+    mainclean = ! git checkout main && git pull && git branchclean
+[init]
+	defaultBranch = main
+[safe]
+	directory = *
+[pull]
+	rebase = false
+[credential]
+    helper = /usr/bin/gp credential-helper
